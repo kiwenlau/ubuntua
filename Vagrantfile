@@ -13,8 +13,9 @@ Vagrant.configure(2) do |config|
       v.memory = 2048
       v.cpus = 1
   end
-
-
+  
+  # shared directory
+  config.vm.synced_folder "/Users/kiwenlau/ubuntu", "/home/vagrant/mac"
   
   config.vm.provision "shell", inline: <<-SHELL
      apt-get update
@@ -24,6 +25,7 @@ Vagrant.configure(2) do |config|
      echo deb https://apt.dockerproject.org/repo ubuntu-trusty main > /etc/apt/sources.list.d/docker.list
      apt-get update;
      apt-get install -y -q docker-engine=1.11.0-0~trusty
+     usermod -aG docker vagrant
   SHELL
 
 end

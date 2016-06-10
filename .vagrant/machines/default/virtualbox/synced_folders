@@ -1,1 +1,1 @@
-{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/kiwenlau/ubuntua","disabled":false}}}
+{"virtualbox":{"/vagrant":{"guestpath":"/vagrant","hostpath":"/Users/kiwenlau/ubuntua","disabled":false},"/home/vagrant/mac":{"guestpath":"/home/vagrant/mac","hostpath":"/Users/kiwenlau/ubuntu","disabled":false}}}
