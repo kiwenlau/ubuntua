@@ -3,10 +3,7 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname="macubuntua"
 
-
   config.vm.network "private_network", ip: "192.168.59.4"
-
-  config.ssh.private_key_path = "/Users/kiwenlau/.ssh/id_rsa"
   
   config.vm.provider "virtualbox" do |v|
       v.name = "macubuntua"  
