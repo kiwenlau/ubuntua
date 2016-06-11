@@ -7,7 +7,7 @@ Vagrant.configure(2) do |config|
   
   config.vm.provider "virtualbox" do |v|
       v.name = "macubuntua"  
-      v.memory = 2048
+      v.memory = 3072
       v.cpus = 1
   end
   
@@ -16,6 +16,8 @@ Vagrant.configure(2) do |config|
   
   # install docker 1.11.0
   config.vm.provision "shell", inline: <<-SHELL
+
+     # install docker 1.11.0
      apt-get update
      apt-get install apt-transport-https ca-certificates
      apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
@@ -23,6 +25,12 @@ Vagrant.configure(2) do |config|
      apt-get update;
      apt-get install -y -q docker-engine=1.11.0-0~trusty
      usermod -aG docker vagrant
+     
+     # configure git
+     git config --global user.email "kiwenlau@126.com"
+     git config --global user.name "kiwenlau"
+     git config --global push.default simple
+
   SHELL
 
 end
