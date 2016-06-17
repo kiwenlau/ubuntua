@@ -2,17 +2,16 @@ Vagrant.configure(2) do |config|
 
   config.vm.box = "ubuntu/trusty64"
   config.vm.hostname="macubuntua"
-
   config.vm.network "private_network", ip: "192.168.59.4"
   
+  # shared directory
+  config.vm.synced_folder "/Users/kiwenlau/ubuntu", "/home/vagrant/macbook"
+
   config.vm.provider "virtualbox" do |v|
       v.name = "macubuntua"  
-      v.memory = 3072
-      v.cpus = 1
+      v.memory = 5120
+      v.cpus = 2
   end
-  
-  # shared directory
-  config.vm.synced_folder "/Users/kiwenlau/ubuntu", "/home/vagrant/mac"
   
   # install docker 1.11.0
   config.vm.provision "shell", inline: <<-SHELL
@@ -34,3 +33,4 @@ Vagrant.configure(2) do |config|
   SHELL
 
 end
+
